@@ -2,12 +2,10 @@
 
 namespace Hcode;
 
-use Rain\Tpl;
-
 class PageAdmin extends Page{
 
-    public function __construct($opts = array(), $tpl_dir = "/views/admin/")
+    public function __construct($opts = array(), $tpl_dir = "/ecommerce/views/admin/")
     {
-        parent::__construct($opts,$tpl_dir);//executa o contrutor da Page.php
+        parent::__construct($opts, $tpl_dir);//executa o contrutor da Page.php
     }
 }

@@ -13,6 +13,7 @@ class  Page{
     public function __construct($opts = array(), $tpl_dir = "/ecommerce/views/")//caminho alterado para ser utilizado local diferente da aula
     {
         $this->options=array_merge($this->defaults, $opts);//merge das opções dos arrais
+        
         $config = array(
             "tpl_dir" => $_SERVER["DOCUMENT_ROOT"] . $tpl_dir,
             "cache_dir"=>$_SERVER["DOCUMENT_ROOT"]."/views-cache/",
@@ -36,7 +37,6 @@ class  Page{
 
     public function setTpl($name, $data=array(), $returnHtml=false){
       $this->setData($data);
-
       $this->tpl->draw($name,$returnHtml);
     }
 
