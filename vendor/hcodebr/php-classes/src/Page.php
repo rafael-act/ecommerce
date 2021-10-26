@@ -7,7 +7,9 @@ class  Page{
     private $tpl;
     private $options=[];
     private $defaults = [//opções padrão
-        "data"=>[]
+        "data"=>[],
+        "header"=>true,//cabecalho como padrao
+        "footer"=>true//rodape como padrao
     ];
 
     public function __construct($opts = array(), $tpl_dir = "/ecommerce/views/")//caminho alterado para ser utilizado local diferente da aula
@@ -26,7 +28,7 @@ class  Page{
 
         $this->setData($this->options["data"]);
 
-        $this->tpl->draw("header");
+        if($this->options["header"]===true)  $this->tpl->draw("header");
     }
 
     private function setData($data = array()){
@@ -42,7 +44,7 @@ class  Page{
 
     public function __destruct()
     {
-       $this->tpl->draw("footer"); 
+        if($this->options["footer"]===true) $this->tpl->draw("footer"); 
     }
 }
 ?>
