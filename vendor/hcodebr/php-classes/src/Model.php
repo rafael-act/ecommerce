@@ -9,14 +9,14 @@
         public function __call($name, $args)
         {
             $method = substr($name,0,3);//verifica os 3 primeiros digitos do nome
-            $fieldname = substr($name,3,strlen($name));
+            $fieldName = substr($name,3,strlen($name));
 
             switch  ($method){
                 case "get":
-                    $this->values[$fieldname];
+                    return (isset($this->values[$fieldName])) ? $this->values[$fieldName] : NULL;
                     break;
                 case "set":
-                    $this->value[$fieldname] = $args[0];
+                    $this->values[$fieldName] = $args[0];
                     break;
             }
         }
